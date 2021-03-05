@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>股票筛选</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+  <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <h1>
+        <strong>上次股票数据更新时间:</strong> {{ LAST_UPDATE }}
+  </h1> 
+
+  <div class="alert alert-info alert-dismissible" style='font-size:28px'>
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <strong>MA60 天: </strong>{{date[1]}} - {{date[0]}}
+    <br>
+    <strong>MA60 30分钟: </strong>{{date[3]}} - {{date[2]}}
+  </div>
+  <div class="alert alert-success alert-dismissible" style='font-size:28px'>
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    共找到{{codeAmount}}条匹配的股票
+  </div>
+  <table class="table table-hover">
+    <thead>
+    <tr style='text-align: center;'>
+        {% for i in labels %}
+            <td><strong>{{ i }}</strong></td>
+        {% endfor %}
+    </tr>
+    </thead>
+    <tbody>
+    {% for i in content %}
+        <tr style='text-align: center; font-size:20px'>
+            {% for j in i %}
+                <td >{{ j }}</td>
+            {% endfor %}
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+</div>
+
+</body>
+
+</html>
+
+<style>
+.td{
+    white-space:nowrap;
+    overflow:hidden;
+    word-break:keep-all;
+}
+
+</style>
