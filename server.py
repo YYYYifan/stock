@@ -10,11 +10,6 @@ app = Flask(__name__)
 def hello_world():
     return('Hello, World!')
 
-@app.route("/hello", methods=['GET', 'POST'])
-def Hello():
-    message = "hello"
-    return render_template("temp.html", temp=message)
-
 @app.route("/index")
 def test():    
     title = ["", "市场", "代码", "MA60 天 涨幅", "MA60 30分钟 涨幅"]
